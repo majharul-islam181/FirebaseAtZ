@@ -8,7 +8,6 @@ class RegisterScreen extends StatelessWidget {
 
   RegisterScreen({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,23 +16,65 @@ class RegisterScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.orangeAccent,
       ),
-      body: Column(children: [
-        TextField(
-          controller: emailController,
-          decoration: const InputDecoration(
-            labelText: "Email",
-            border: OutlineInputBorder(),
-          ),
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          // crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            TextField(
+              controller: emailController,
+              decoration: const InputDecoration(
+                labelText: "Email",
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(
+              height: 20.0,
+            ),
+            TextField(
+              obscureText: true,
+              controller: passwordController,
+              decoration: const InputDecoration(
+                  labelText: 'password', border: OutlineInputBorder()),
+            ),
+            const SizedBox(
+              height: 20.0,
+            ),
+            TextField(
+              obscureText: true,
+              controller: confrimPasswordController,
+              decoration: const InputDecoration(
+                  labelText: 'confrim password', border: OutlineInputBorder()),
+            ),
+            const SizedBox(
+              height: 20.0,
+            ),
+            // ignore: sized_box_for_whitespace
+            Container(
+              height: 50.0,
+              width: MediaQuery.of(context).size.width,
+              child: ElevatedButton(
+                onPressed: () {},
+                child: const Text(
+                  'Submit',
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 20.0,
+            ),
+            TextButton(
+              onPressed: () {},
+              child: const Text('Already have a account? login here'),
+            ),
+          ],
         ),
-        const SizedBox(height: 20.0,),
-        TextField(
-          obscureText: true,
-          controller: passwordController,
-          decoration:const InputDecoration(labelText: 'password', border: OutlineInputBorder()),
-          
-        ),
-
-      ],),
+      ),
     );
   }
 }
